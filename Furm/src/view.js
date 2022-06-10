@@ -1,41 +1,49 @@
+let start = false;
 
-const roomX = 25;
-const roomY = 100;
-const roomW = 250;
-const roomH = 250;
-const floorNum = 4;
-let roomEX = 525;
-let roomEY = 600;
+const roomX = 45;
+const roomY = 45;
+const roomW = 410;
+const roomH = 410;
+const floorNum = 1;
+let roomEX = roomX + roomW;
+let roomEY = roomY + roomH;
 function setup() {
-  createCanvas(600, 1200);
-  background(200);
+  createCanvas(500, 500);
+  background(220);
 
-  connectBtn = createButton("connect to cube");
+  noStroke();
+  const connectBtn = createButton("connect to cube");
+  connectBtn.id("connect");
   connectBtn.position(0, 0);
   connectBtn.mousePressed(connectCube);
-
-  setRoom();
 }
 
-const cubeW = 25;
-const cubeH = 25;
-let cubeX = 0;
-let cubeY = 0;
-let cube;
 function draw() {
-  if(mouseIsPressed) {
-    if((mouseX >= roomX && mouseX <= roomEX-cubeW) && (mouseY >= roomY && mouseY <= roomEY-cubeH)){
-      cubeX = mouseX;
-      cubeY = mouseY;
-      background(200);
-      setRoom();
-      fill(255);
-      rect(cubeX, cubeY, cubeW, cubeH);
+  if(mouseIsPressed && start) {
+    viewCubeObj();
+  }
+
+  if(cubeMoveAngleStatus) {
+    return; 
+    if(cubeAngle >= relAngle-5 && cubeAngle <= relAngle) {
+      console.log("cubeMoveAngle stop:", cubeAngle);
+      cubeMoveAngleStatus = false;
+      moveCube();
+    }
+  }
+
+  if(cubeMoveStatus) {
+    if((cubeY >= cubeObjY-5 && cubeY <= cubeObjY+5)) {
+      console.log("cubeMove stop\ncubeX:", cubeX, "cubeY:", cubeY, "\ncubeObjX:", cubeObjX, "cubeObjY:", cubeObjY);
+      cubeMoveStatus = false;
+      cube.stop();
     }
   }
 }
 
 const setRoom = () => {
+  fill(255);
+  stroke(150);
   let x = roomX;
   let y = roomY;
 
@@ -56,9 +64,35 @@ const setRoom = () => {
   }
 }
 
-const getCubeLocation = () => {
-  let x = 0;
-  let y = 0;
+const createBtns = () => {
+  const moveStartBtn = createButton("MOVE");
+  moveStartBtn.id("move");
+  moveStartBtn.mousePressed(moveCubeAngle);
+  moveStartBtn.position(roomEX-50, roomEY+15);
 
-  return;
+  const detectionBtn = createButton("DETECTION");
+  detectionBtn.id("detection");
+  detectionBtn.mousePressed(detectionCube);
+  detectionBtn.position(roomEX-150, roomEY+15);
+}
+
+const cubeObjW = 31.8;
+const cubeObjH = 31.8;
+let cubeObjX = roomX;
+let cubeObjY = roomY;
+const viewCubeObj = () => {
+  const cubeObjR = 255;
+  const cubeObjG = 142;
+  const cubeObjB = 60;
+
+  if(detectionId && (mouseX >= roomX && mouseX <= roomEX-cubeObjW) && (mouseY >= roomY && mouseY <= roomEY-cubeObjH)){
+    cubeObjX = mouseX;
+    cubeObjY = mouseY;
+  }
+
+  background(220);
+  setRoom();
+  fill(cubeObjR, cubeObjG, cubeObjB);
+  noStroke();
+  rect(cubeObjX, cubeObjY, cubeObjW, cubeObjH);
 }
