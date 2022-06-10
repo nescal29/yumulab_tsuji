@@ -32,7 +32,7 @@ function draw() {
   }
 
   if(cubeMoveStatus) {
-    if((cubeX >= cubeObjX-50 && cubeX <= cubeObjX+50) && (cubeY >= cubeObjY-5 && cubeY <= cubeObjY+5)) {
+    if((cubeX >= cubeObjX-100 && cubeX <= cubeObjX+100) && (cubeY >= cubeObjY-100 && cubeY <= cubeObjY+100)) {
       console.log("cubeMove stop\ncubeX:", cubeX, "cubeY:", cubeY, "\ncubeObjX:", cubeObjX, "cubeObjY:", cubeObjY);
       cubeMoveStatus = false;
       cube.stop();
