@@ -24,7 +24,6 @@ function draw() {
   }
 
   if(cubeMoveAngleStatus) {
-    return; 
     if(cubeAngle >= relAngle-5 && cubeAngle <= relAngle) {
       console.log("cubeMoveAngle stop:", cubeAngle);
       cubeMoveAngleStatus = false;
@@ -33,7 +32,7 @@ function draw() {
   }
 
   if(cubeMoveStatus) {
-    if((cubeY >= cubeObjY-5 && cubeY <= cubeObjY+5)) {
+    if((cubeX >= cubeObjX-50 && cubeX <= cubeObjX+50) && (cubeY >= cubeObjY-5 && cubeY <= cubeObjY+5)) {
       console.log("cubeMove stop\ncubeX:", cubeX, "cubeY:", cubeY, "\ncubeObjX:", cubeObjX, "cubeObjY:", cubeObjY);
       cubeMoveStatus = false;
       cube.stop();

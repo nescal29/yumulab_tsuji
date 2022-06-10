@@ -38,16 +38,27 @@ const connectCube = async () => {
 
 // toioを動かす
 let speed = 0;
+let relAngle = 0;
 let cubeMoveAngleStatus = false;
 const moveCubeAngle = async () => {
   cubeMoveAngleStatus = true;
 
-  // 目的地の方向を向く。
-  // if(cubeAngle >= 0 && cubeAngle <= 180) {
-  //   await cube.move(speed, speed*-1, 0);
-  // }else {
-  //   await cube.move(speed*-1, speed, 0);
-  // }
+  const diffX = cubeObjX - cubeX;
+  const diffY = cubeObjY - cubeY;
+
+  console.log("diffX:", diffX, "diffY:", diffY);
+
+  relAngle = Math.atan2(diffY, diffX) * 180 / Math.PI;
+  relAngle = (relAngle + 360) % 360;
+  console.log("cubeAngle:",cubeAngle);
+  console.log("relAngle:", relAngle); 
+
+  speed = 10;
+  if(relAngle < 180) {
+    await cube.move(speed, speed * -1, 0);
+  }else{
+    await cube.move(speed * -1, speed, 0);
+  }
 }
 
 let cubeMoveStatus = false;
