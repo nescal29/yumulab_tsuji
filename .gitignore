@@ -1,7 +1,11 @@
 # Furm project files
 Furm/toio-browser-example/
-Furm/static/lib/
 
 # ProgressTweetSender project files
 ProgressTweetSender/dev/
 ProgressTweetSender/.env
+
+# LifeManager project files
+LifeManager/.env
+LifeManager/dev/
+LifeManager/__pycache__
