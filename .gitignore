@@ -8,4 +8,6 @@ ProgressTweetSender/.env
 # LifeManager project files
 LifeManager/.env
 LifeManager/dev/
-LifeManager/__pycache__
+LifeManager/ngrok
+LifeManager/__pycache__/
+LifeManager/app/__pycache__/
