@@ -1,5 +1,7 @@
 # Furm project files
 Furm/toio-browser-example/
+Furm/Furm/config/.env
+Furm/Furm/db.sqlite3
 
 # ProgressTweetSender project files
 ProgressTweetSender/dev/
