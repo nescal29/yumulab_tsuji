@@ -1,0 +1,30 @@
+{% extends "html/base.html" %}
+
+{% block title %}Furm ~login~{% endblock %}
+
+{% block header-title %}ログイン{% endblock %}
+
+{% block main-content %}
+    <div>
+        <from method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table class="login-form">
+                <tr>
+                    <td>
+                        <label for="user-id">ユーザID</label>
+                    </td>
+                    <td>
+                        <input type="text" name="user-id">
+                    </td>
+                    <td>
+                        <label for="password">パスワード</label>
+                    </td>
+                    <td>
+                        <input type="password" name="password">
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" class="btn" value="ログイン">
+        </from>
+    </div>
+{% endblock %}
