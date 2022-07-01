@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block header %}
+    <script src="{% static 'js/lib/p5.min.js' %}"></script>
+    <script src="{% static 'js/lib/toio-browser-1.0.0.js' %}"></script>
+{% endblock %}
+
+{% block load-js %}
+    <script src="{% static 'js/move_toio.js' %}"></script>
+    <script src="{% static 'js/move_view.js' %}"></script>
+{% endblock %}

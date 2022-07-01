@@ -33,7 +33,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
-STATIC_URL = join(BASE_DIR, "static/")
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
