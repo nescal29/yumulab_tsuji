@@ -13,3 +13,7 @@ LifeManager/dev/
 LifeManager/ngrok
 LifeManager/__pycache__/
 LifeManager/app/__pycache__/
+
+# KeyManagementSystem project files
+KeyManagementSystem/config/__init__.py
+KeyManagementSystem/config/.env
