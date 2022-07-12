@@ -5,18 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}"></link>
-    {% block header %}{% endblock %}
+    {% block head %}{% endblock %}
     <title>Furm</title>
 </head>
 <body>
     <header>
-        <h1>Hello World</h1>
+        <div class="app-header">
+            <h1 class="app-logo">Furm</h1>
+            <a href=""><img src="{% static 'images/icon' %}" class="menu-img"></a>
+        </div>
+
+        {% block header %}{% endblock %}
     </header>
     <main>
+        {% block main %}{% endblock %}
     </main>
     <footer>
-        <hr>
-        <p>Tsujinaga@yumulab © 2022</p>
+        {% block footer %}{% endblock %}
     </footer>
 
     {% block load-js %}{% endblock %}

@@ -11,6 +11,7 @@ env.read_env(env_path)
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+print(ALLOWED_HOSTS)
 
 INSTALLED_APPS = [
     "django.contrib.admin",

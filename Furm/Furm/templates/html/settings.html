@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <script src="{% static 'js/lib/p5.min.js' %}"></script>
+    <script src="{% static 'js/lib/toio-browser-1.0.0.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    <h3 class="method-title">部屋情報を設定する</h3>
+{% endblock %}
+
+{% block main %}
+    <p>部屋の間取り情報を入力してください。</p>
+    
+    <div id="view-canvas">
+    </div>
+
+    <p class="form-p">
+        <label for="width">横</label>
+        <input type="number" name="width" min="1" max="1000" value="410">
+        <span id="width-unit">px</span>
+    </p>
+    <p class="form-p">
+        <label for="height">縦</label>
+        <input type="number" name="height" min="1" max="1000" value="410">
+        <span id="height" id="height-unit">px</span>
+    </p>
+    <p class="form-p">
+        <label for="mat-num">畳</label>
+        <input type="number" name="mat-num" min="1" max="1000" value="1">
+        <span id="mat-num-unit">畳</span>
+    </p>
+    <a href="{% url 'move_toio' %}"><button id="connect">接続</button></a>
+{% endblock %}
+
+{% block load-js %}
+    <!-- <script src="{% static 'js/move_toio.js' %}"></script> -->
+    <script src="{% static 'js/view.js' %}"></script>
+{% endblock %}

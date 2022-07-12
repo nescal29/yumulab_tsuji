@@ -1,18 +1,98 @@
-html, body {
+@charset "utf-8";
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
 
+/* base.html */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+p, span {
+  font-size: 18px;
+}
+
+header {
+  height: 130px;
+  background-color: #c4c4c4;
+  padding: 3%;
+}
+
+header .app-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .app-logo {
+  font-size: 48px;
+}
+
+header a .menu-img {
+}
+
+/* move_toio.html */
+header .method-title {
+  font-size: 24px;
+}
+
 main {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#view-canvas {
+  position: relative;
+}
+
+#mat-view-canvas {
+  border: solid 2px;
+}
+
+#mag-content {
+  position: absolute;
+  bottom: 9px;
+  right: 0;
+}
+
+#mag {
+  font-size: 22px;
+  text-align: center;
+  background-color: #FFFFFF;
+  outline: none;
+  border: none;
+  width: 40%;
+}
+
+main .form-p input {
+  text-align: center;
+  font-size: 32px;
+  width: 60%;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px;
+}
+
+main .form-p label {
+  font-size: 24px;
+}
+
+main .form-p {
   text-align: center;
 }
 
 #connect {
-  width: 75%;
-  height: 35px;
-  font-size: 20px;
+  width: 45%;
+  height: 64px;
 }
 
-canvas {
-  display: block;
+/* タブレット */
+@media screen and (min-width: 481px) {
+}
+
+/* PC */
+@media screen and (min-width: 960px) {
 }
